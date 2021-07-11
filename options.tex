@@ -1,0 +1,376 @@
+%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[top=0.5cm, left=0.5cm, right=0.5cm, bottom=0.8cm, landscape]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+%\usepackage[ngerman]{babel}
+\usepackage[usenglish, english]{babel} 
+%\usepackage[charter, expert, cal=cmcal]{mathdesign}
+\usepackage{array}
+%\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{ifthen,calc}
+\usepackage{empheq}
+\usepackage{wrapfig}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{multicol}
+\usepackage[svgnames,table,hyperref, dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{parskip}
+\usepackage{blindtext}
+\usepackage{floatflt}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage[fulladjust]{marginnote}
+\usepackage{longtable}
+\usepackage{xtab,afterpage}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{accents}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{siunitx}
+\usepackage[most]{tcolorbox}
+\usepackage{titling}
+\usepackage[a]{esvect} % vectors, options a--h
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{empheq}
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage[style=ieee, doi=false, isbn=false]{biblatex}
+\addbibresource{bib.bib}
+\usepackage[nottoc]{tocbibind}
+\usepgfplotslibrary{external}
+
+
+%%%%%%%%%%%%% Images %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{img/}}
+
+\newcommand{\includetexpdf}[3]%
+{ %
+	{#2} % fontsize
+	\def\svgwidth{#3\columnwidth} % size
+	\input{img/#1.pdf_tex} % path
+}
+
+
+%%%%%%%%% Fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\familydefault}{\sfdefault}
+%%\usepackage{mathptmx}
+%%\usepackage[lining, scale = 0.9]{firasans}
+%\usepackage[scale=0.87]{tgheros}
+%\usepackage[]{sfmath}
+%\usepackage[scale=0.87, lining]{firamono}
+
+% ----- tx fonts -> italic boldmath -----
+\usepackage[scale=0.94]{tgheros} % fit uppercase
+\usepackage[tx]{sfmath}
+\usepackage[scale=0.94, lining]{firamono} % fit undercase
+
+
+%% xcharter ---------------------------------------------------------------------
+%\usepackage[sups, scaled=.96, osf]{XCharter} % 'osf' = oldstyle figures
+%\linespread{1.04}
+%\usepackage[scaled=0.937, osf]{FiraSans}
+%\usepackage[scaled=0.88, osf]{FiraMono}
+%%\usepackage[scale=0.89]{tgheros}
+%%\usepackage[varqu,varl, scaled=1.04]{inconsolata} % sans serif typewr iter
+%%\usepackage[xcharter,bigdelims,vvarbb,scaled=1.055]{newtxmath}  % bb from STIX
+%\AtBeginDocument {
+%	\DeclareSymbolFont{bch}{T1}{\rmdefault}{m}{n}
+%	\DeclareMathDelimiter{(}{\mathopen}{bch}{'050}{largesymbols}{"00}
+%	\DeclareMathDelimiter{)}{\mathopen}{bch}{'051}{largesymbols}{"01}
+%}
+%\addtokomafont{disposition}{\normalfont\sffamily\firamedium}
+%
+%\usepackage[charter,expert, cal=cmcal]{mathdesign}
+%%\usepackage[mathcal]{eucal}
+%
+%
+%%\usepackage[mathcal]{eucal}
+
+
+
+%%%%%%%%% Mathematics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Red Boxed Equation -----------------------------------------------------------
+\newcommand\widecolourbox[1]{{\setlength\fboxrule{0.5pt}\setlength\fboxsep{3pt}\fcolorbox{red}{white}{\enspace#1\enspace }}}
+
+
+% Theorems % enable "theorem" package to use!! ---------------------------------
+\newtheoremstyle{thmStyle}
+{\topsep} % Space above
+{\topsep} % Space below
+{\itshape} % Body font
+{} % Indent amount
+{\sffamily} % Theorem head font
+%{\sffamily\firamedium} % Theorem head font
+{:} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning `normal')
+\theoremstyle{thmStyle} \newtheorem{example}{Example}
+\theoremstyle{thmStyle} \newtheorem{remark}{Remark}
+\theoremstyle{thmStyle} \newtheorem{definition}{Definition}
+\theoremstyle{thmStyle} \newtheorem{lemma}{Lemma}
+\theoremstyle{thmStyle} \newtheorem{corollary}{Corollary}
+\theoremstyle{thmStyle} \newtheorem{theorem}{Theorem}
+
+\setlength{\mathindent}{1em}
+
+% Mathematische Opteratoren ----------------------------------------------------
+%\DeclareMathOperator{\rg}{rg}
+%\DeclareMathOperator{\diag}{diag}
+%\DeclareMathOperator{\spur}{tr}
+%\DeclareMathOperator{\mspan}{span}
+%\DeclareMathOperator{\mim}{im}
+%\DeclareMathOperator{\grad}{grad}
+
+%% Vectors
+%\renewcommand{\vec}[1]{\underline{#1}}
+%\renewcommand{\vec}[1]{\vv{#1}}
+%\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\renewcommand{\vec}{\vectorbold*} % using physics package
+
+% Differential
+\newcommand{\dif}{\, \text{d}}
+\newcommand{\diff}{\text{d}}
+
+% Double underline for results
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+% Colorbox empheq --------------------------------------------------------------
+\newtcbox{\mathbox}[1][]{nobeforeafter, math upper, tcbox raise base, 
+	enhanced, sharp corners, colback=white, colframe=red, left=0.5em, top=0.25em, right=0.5em, bottom=0.25em }
+% drop fuzzy shadow,
+
+% Math Display Spacing----------------------------------------------------------
+\makeatletter
+\g@addto@macro \normalsize {%
+	\setlength\abovedisplayskip{0.3em plus 0.25em minus 0.1em}%
+	\setlength\belowdisplayskip{0.3em plus 0.25em minus 0.1em}%
+}
+\makeatother
+
+
+
+%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\floatpagefraction{.9}
+\renewcommand\dblfloatpagefraction{.9} % for two column documents
+\renewcommand\topfraction{.9}
+\renewcommand\dbltopfraction{.9} % for two column documents
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+%\renewcommand{\familydefault}{\sfdefault}
+\setlength\multicolsep{0pt}
+
+\addtolength{\parskip}{-0.4em}
+\addtolength{\floatsep}{-0.4em}
+\addtolength{\textfloatsep}{-0.4em}
+\addtolength{\intextsep}{-0.8em}
+
+% Farben
+\definecolor{hellblau}{rgb}{0.75,0.88,1}
+
+\setlength{\columnseprule}{0.25pt}
+
+\setlength{\footskip}{15pt}
+
+% Save Space -------------------------------------------------------------------
+\tolerance=2000 %Toleranz für Wortzwischenräume
+\setlength{\emergencystretch}{20pt} %Zusätzliche Zeilendehnbarkeit in Notfällen
+
+\linespread{0.95}
+
+% ----- Sections Type 1 --------------------------------------------------------
+
+%\makeatletter
+%\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+%	{-1.2\baselineskip}{0.8\baselineskip}%
+%	{\hrule depth 0.2pt width\columnwidth\hrule depth0.1em
+%		width0.35\columnwidth\vspace*{0.6em}\Large\bfseries\sffamily}}
+%\makeatother
+%
+%\makeatletter
+%\renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}%
+%	{-1\baselineskip}{0.6\baselineskip}%
+%	{\hrule depth 0.2pt width\columnwidth\hrule depth0.06em
+%		width0.25\columnwidth\vspace*{0.6em}\large\bfseries\sffamily}}
+%\makeatother
+%
+%\makeatletter
+%\renewcommand{\subsubsection}{\@startsection{subsubsection}{1}{0mm}%
+%	{-1\baselineskip}{0.4\baselineskip}%
+%	{\hrule depth 0.2pt width\columnwidth\vspace*{0.6em}\normalsize\bfseries\sffamily}}
+%\makeatother
+
+% Sections Type 2 --------------------------------------------------------------
+
+% Chapter
+\colorlet{chapterbackground}{orange!80}
+\addtokomafont{chapter}{\color{black}}
+\makeatletter
+\renewcommand\chapterlinesformat[3]{%
+	\colorbox{chapterbackground}{%
+		\parbox[c][\dimexpr\totalheight+0.1em]{\dimexpr\linewidth-2\fboxsep}{%
+			\raggedchapter%
+			\@hangfrom{#2}#3%
+	}}%
+}
+\renewcommand\chapterlineswithprefixformat[3]{%
+	\colorbox{chapterbackground}{%
+		\parbox[c][\dimexpr\totalheight+1em]{\dimexpr\linewidth-2\fboxsep}{%
+			\raggedchapter%
+			#2#3%
+	}}%
+}
+\makeatother
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+
+\colorlet{sectioncolor}{blue!50}
+\colorlet{subsectioncolor}{blue!30}
+\colorlet{subsubsectioncolor}{blue!15}
+\makeatletter
+\renewcommand\sectionlinesformat[4]{%
+	\hspace{#2}%
+	\colorbox{#1color}{%
+		\parbox[c]{\dimexpr\columnwidth-2\fboxsep-#2\relax}{%
+			\raggedsection\color{black}\@hangfrom{#3}{#4}%
+		}}}
+\makeatother
+%\RedeclareSectionCommand[indent=0]{section}
+%\renewcommand\raggedsection{\centering}
+\RedeclareSectionCommand[beforeskip=1em, afterskip=0.001em]{chapter}
+\RedeclareSectionCommand[beforeskip=0em, afterskip=0.001em]{section}
+\RedeclareSectionCommand[beforeskip=0em, afterskip=0.001em]{subsection}
+\RedeclareSectionCommand[beforeskip=0em, afterskip=0.001em]{subsubsection}
+
+\setkomafont{chapter}{\Large}
+\setkomafont{section}{\large}
+\setkomafont{subsection}{\normalsize}
+\setkomafont{subsubsection}{\normalsize}
+
+% Itemize ----------------------------------------------------------------------
+\setlist[itemize]{noitemsep, topsep=0em, leftmargin=2em, after=\vspace{0.2em}, before=\vspace{0.0em}}
+\setlist[enumerate]{noitemsep, topsep=0em, leftmargin=2em, after=\vspace{0.2em}, before=\vspace{0.0em}}
+
+% Paragraph --------------------------------------------------------------------
+\newcommand{\parainline}[1]{\textsf{\textbf{#1:}}}
+
+\makeatletter
+\renewcommand{\paragraph}{%
+	\@startsection{paragraph}{4}%
+	{\z@}{0ex \@plus 0.5ex \@minus 0.2ex}{-0.5em}% %1ex: Abstand vertikal, plus/minus space streching, {...} = horizontal space
+	{\normalfont\normalsize\bfseries\sffamily}%
+%	{\normalfont\normalsize\bfseries\sffamily\firamedium}%
+}
+\makeatother
+
+\reversemarginpar
+\newcommand{\note}[1]{\protect\marginnote{\textit{{\normalsize\textbf{ #1}}}}}
+
+%%%%%%%%%%%%% Custom Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Commands ---------------------------------------------------------------------
+\newcommand{\mdefinition}[1]{\textbf{\textsf{Def.}} #1}
+\newcommand{\mbeispiel}[1]{\textit{\textsf{Bsp.}} #1}
+\newcommand{\tipp}{\textbf{\textsf{Tipp: }}}
+\newcommand{\emfo}[1]{\setlength{\fboxrule}{1pt}\fcolorbox{Red}{White}{#1}} % emphasize formulas
+
+\newcommand{\sectionnote}[1]{\hfill \normalsize\normalfont{#1}}
+\newcommand{\refbook}[1]{\normalfont\normalsize{\hfill p.\ #1}}
+
+\newcommand{\matlab}{\textsc{Matlab}\textsuperscript{\tiny{\textregistered}}}
+
+
+%%%%%%%%%%%% PDF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+	hidelinks=true,
+	%	frenchlinks=true,
+	%	linkcolor=black,
+	%	filecolor=black,      
+	%	urlcolor=black,
+	%	citecolor=black,
+	%	allcolors=black,
+	%	allbordercolors=red,
+	%pdfpagemode=FullScreen,
+	pdftitle= {\mytitle},
+	pdfauthor={\myauthor},
+	%pdfkeywords={},
+%	pdfcreator={Some fancy PDF-Creator...},
+	bookmarksnumbered=true
+}
+\urlstyle{same}
+
+%%%%%%%%%%%% Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\lstset{
+%	backgroundcolor=\color{white},
+%	tabsize=2,
+%	rulecolor=,
+%	language=C++,
+%	%basicstyle=\scriptsize, % noch kleinerer Code
+%	basicstyle=\ttfamily, %mittlerer Code
+%	upquote=true,
+%	aboveskip={0.3\baselineskip},
+%	columns=fixed,
+%	showstringspaces=false,
+%	extendedchars=true,
+%	breaklines=true,
+%	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+%	frame=single,
+%	showtabs=false,
+%	showspaces=false,
+%	showstringspaces=false,
+%	identifierstyle=\ttfamily,
+%	keywordstyle=\color[rgb]{0,0,1},
+%	commentstyle=\color[rgb]{0.133,0.545,0.133},
+%	stringstyle=\color[rgb]{0.627,0.126,0.941},
+%	numbers=left,
+%	numberstyle=\tiny,
+%	stepnumber=1,
+%	numbersep=5pt,
+%	belowskip=1em
+%}
+
+
+
+%%%%%%%%%%%%% Colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\myred}[1]{\textcolor{red}{#1}}
+\newcommand{\myblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\mygreen}[1]{\textcolor{green}{#1}}
+\newcommand{\myorange}[1]{\textcolor{orange}{#1}}
+\newcommand{\mygray}[1]{\textcolor{gray}{#1}}
+
+\newcommand{\speed}[1]{\myorange{#1}}
+
+\newenvironment{notrelevant}{\color{gray}}{\ignorespacesafterend}
+
+
+
+%%%%%%%%%%%%% Webpages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% note: Squezing space in Latex http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/squeeze.html

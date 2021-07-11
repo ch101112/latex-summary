@@ -1,0 +1,46 @@
+%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+	paper=a4,%
+	pagesize,%
+	8pt, fleqn,%
+	headings=small,%
+	notitlepage,%
+	parskip=never]%
+	{scrreprt}
+	
+% TODO: Edit metadata!
+	
+\newcommand{\mytitle}{Summary}
+\newcommand{\myauthor}{John Doe}
+\newcommand{\myprofessor}{Prof.\ Hans Muster}
+\newcommand{\mydate}{SS 2019}
+	
+\input{options}
+
+\begin{document}
+\begin{multicols*}{3}
+
+% Title
+{\bfseries\sffamily\LARGE\mytitle} \vspace{0.35em} \\ \myprofessor, \mydate  \hfill \myauthor, \today \vspace{0.5em}
+
+\tableofcontents
+
+%%%%%%%%%% INPUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO: Add content!
+
+\input{test} % some cool tests
+%\input{graph}
+
+\appendix
+
+%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%\columnbreak
+\nocite{*}
+\printbibliography
+
+\end{multicols*}
+\end{document}
